@@ -7,7 +7,7 @@ A starting point for [Noctívago](https://github.com/Venari-Hunt/Noctivago) plug
 1. Click **Use this template** (or copy this repo) and rename it.
 2. In `manifest.json`, set your own `id`, `name`, `author` and `description`. The `id` is lowercase letters, digits and dashes.
 3. Run `npm install`, then `npm run build`. That writes `main.js`.
-4. To try it, copy `manifest.json` and `main.js` into `%APPDATA%\Noctívago\plugins\<your-id>\` and restart Noctívago.
+4. To try it, copy `manifest.json` and `main.js` into `%APPDATA%\noctivago\plugins\<your-id>\` and restart Noctívago.
 
 The plugin API is in `types/plugin.d.ts` and explained in [docs/plugins.md](https://github.com/Venari-Hunt/Noctivago/blob/master/docs/plugins.md).
 
