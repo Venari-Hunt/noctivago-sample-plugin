@@ -11,6 +11,20 @@ A starting point for [Noctívago](https://github.com/Venari-Hunt/Noctivago) plug
 
 The plugin API is in `types/plugin.d.ts` and explained in [docs/plugins.md](https://github.com/Venari-Hunt/Noctivago/blob/master/docs/plugins.md).
 
+## Notifications
+
+The app has built-in notifications (bottom-left of the window), and your plugin can show them:
+
+```js
+this.app.notifications?.show({ message: 'Rain pack downloaded.', tone: 'success' })
+```
+
+- **When:** whenever your plugin does something the user didn't just ask for (a background download, an automatic change, an error nobody saw). That's the app's own rule.
+- **Options:** `tone` (`info`, `success`, `error`), `title` (defaults to your plugin's name), `key` (a second notice with the same key replaces the first), `timeoutMs` (leave it out and it stays until closed), `actions` (buttons: `[{ label, onClick }]`).
+- **Older apps:** notifications need Noctívago 0.1.238 or newer. Either call it with `?.` as above, so it does nothing on an older app, or set `"minAppVersion": "0.1.238"` in `manifest.json`.
+
+The Sample tab's **Show a notification** button is a working example: `src/domain/notice.js` builds the message, `src/components/NotifyButton.jsx` shows it.
+
 ## How to organize your code
 
 Please keep the layout this template uses. Every screen in Noctívago is built this way, including the app's own plugins ([CONTRIBUTING.md](https://github.com/Venari-Hunt/Noctivago/blob/master/CONTRIBUTING.md#code-conventions)):
