@@ -27,7 +27,7 @@ export default class SamplePlugin {
       title: 'Sample',
       mount: (container) => {
         this.root = createRoot(container)
-        this.root.render(<SamplePanel noctivago={this.app.noctivago} />)
+        this.root.render(<SamplePanel app={this.app} />)
       }
     })
   }
