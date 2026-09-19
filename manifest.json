@@ -1,0 +1,9 @@
+{
+  "id": "sample-plugin",
+  "name": "Sample Plugin",
+  "version": "1.0.0",
+  "minAppVersion": "0.1.234",
+  "description": "A starting point for Noctívago plugins: a React tab that shows how many sounds are in your library.",
+  "author": "Noctívago",
+  "main": "main.js"
+}
