@@ -1,11 +1,12 @@
 {
   "name": "noctivago-sample-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite build --watch"
+    "dev": "vite build --watch",
+    "test": "node --test"
   },
   "dependencies": {
     "react": "^19.3.0",

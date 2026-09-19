@@ -11,6 +11,24 @@ A starting point for [Noctívago](https://github.com/Venari-Hunt/Noctivago) plug
 
 The plugin API is in `types/plugin.d.ts` and explained in [docs/plugins.md](https://github.com/Venari-Hunt/Noctivago/blob/master/docs/plugins.md).
 
+## How to organize your code
+
+Please keep the layout this template uses. Every screen in Noctívago is built this way, including the app's own plugins ([CONTRIBUTING.md](https://github.com/Venari-Hunt/Noctivago/blob/master/CONTRIBUTING.md#code-conventions)):
+
+```
+src/
+  index.jsx      entry: the plugin class, registers the tab
+  domain/        what the plugin does: rules and utilities, no DOM
+  components/    the interface: small React components, one job each
+test/            tests for domain/ (npm test)
+```
+
+- **domain/** holds the logic. It never touches the page, so you can test it with plain `node --test` and debug it without opening the app.
+- **components/** only display things and pass user actions to domain/. Split a component when it starts doing two jobs, instead of growing one big file.
+- Canvas drawing (waveforms, meters) is fine inside a component.
+
+The release workflow runs `npm test` before publishing, so a failing test stops a broken release.
+
 ## Release it
 
 1. Bump `version` in `manifest.json`, and add the same version to `versions.json` with your `minAppVersion`.
